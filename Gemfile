@@ -14,3 +14,4 @@ gem 'thin'
 gem 'tux'
 gem 'shotgun'
 gem 'bcrypt'
+gem "dotenv", "~> 2.7"
