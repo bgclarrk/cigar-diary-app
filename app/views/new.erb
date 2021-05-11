@@ -1,0 +1,24 @@
+<div class="container">
+    <h3>Create a new cigar review below</a></h3>
+
+    <form action="" method="POST">
+        <label for="review_title">Review Title: </label><br>
+        <input type="text" id="review_title" name="review_title">
+        <br><br>
+        <label for="review_rating">Review Rating: </label><br>
+        <input type="range" min="0" max="5" value="3" id="review_rating" name="review_rating" step="1" list="ratingsettings">
+        <datalist id="ratingsettings">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </datalist>
+        <br><br>
+        <label for="review_description">Review Description: </label><br>
+        <textarea id="review" name="review_description"></textarea>
+        <br><br>
+        <input type="submit" id="submit" value="Save">
+    </form>
+</div>
