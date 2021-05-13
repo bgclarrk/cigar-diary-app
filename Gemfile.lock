@@ -73,7 +73,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord
+  activerecord (= 6.1.3.2)
   bcrypt
   dotenv (~> 2.7)
   pry
