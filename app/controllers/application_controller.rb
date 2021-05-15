@@ -22,6 +22,12 @@ class ApplicationController < Sinatra::Base
         erb :login
     end
 
+    get '/show' do
+        @reviews = Review.all
+
+        erb :show
+    end
+
     get '/new' do
         erb :new
     end

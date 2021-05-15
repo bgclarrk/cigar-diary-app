@@ -1,0 +1,8 @@
+<h1>Previous Reviews:</h1>
+
+<% @reviews.each do |review| %>
+    <h3><%= review.title %></h3>
+    <h6>BY: <%= review.user_id.user_name %> ON: <%= review.created_at %></h6>
+    <h4><%= review.rating %></h4>
+    <p><%= review.description %></p>
+<% end %>
