@@ -11,6 +11,17 @@ class ApplicationController < Sinatra::Base
         erb :index
     end
 
+    post '/' do
+        user = User.new(params)
+        user.save
+
+        redirect 'show.erb'
+    end
+
+    get '/login' do
+        erb :login
+    end
+
     get '/new' do
         erb :new
     end
