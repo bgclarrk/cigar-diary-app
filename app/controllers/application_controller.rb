@@ -11,23 +11,31 @@ class ApplicationController < Sinatra::Base
         erb :index
     end
 
-    post '/' do
-        user = User.new(params)
-        user.save
-
-        redirect 'show.erb'
-    end
-
     get '/login' do
         erb :login
     end
-
+    
     get '/show' do
         @reviews = Review.all
-
+        
         erb :show
     end
 
+    post '/show' do
+        @user = User.find_by(user_email: params[:user_email])
+        if @user
+            session[:user_id] = @user.id
+
+            redirect '/login'
+        else
+            @user = User.new(params)
+            @user.save
+            session[:user_id] = User.last.id
+
+            erb :show
+        end
+    end
+    
     get '/new' do
         erb :new
     end
