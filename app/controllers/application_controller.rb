@@ -23,6 +23,13 @@ class ApplicationController < Sinatra::Base
 
     post '/show' do
         @user = User.find_by(user_email: params[:user_email])
+
+        @reviews = Review.all
+        erb :show
+    end
+
+    post '/' do
+        @user = User.find_by(user_email: params[:user_email])
         if @user
             session[:user_id] = @user.id
 
