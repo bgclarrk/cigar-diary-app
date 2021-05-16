@@ -47,4 +47,10 @@ class ApplicationController < Sinatra::Base
         erb :new
     end
 
+    post '/new' do
+        @review = Review.create(params)
+        
+        redirect '/show'
+    end
+
 end
