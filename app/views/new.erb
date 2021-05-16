@@ -2,6 +2,7 @@
     <h3>Create a new cigar review below</a></h3>
 
     <form action="/reviews/new" method="POST">
+        <input type="hidden" name="user_id" value="<%= @user_id %>">
         <label for="review_title">Review Title: </label><br>
         <input type="text" id="review_title" name="review_title">
         <br><br>
