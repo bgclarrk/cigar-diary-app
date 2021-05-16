@@ -16,3 +16,6 @@ gem 'tux'
 gem 'shotgun'
 gem 'bcrypt'
 gem "dotenv", "~> 2.7"
+gem 'nokogiri'
+gem 'open-uri'
+gem 'json'
