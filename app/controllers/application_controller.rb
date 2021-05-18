@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
             @user = User.create(params)
             session[:user_id] = User.last.id
             
-            erb :reviews
+            redirect '/reviews'
         end
     end
 
@@ -61,7 +61,6 @@ class ApplicationController < Sinatra::Base
     end
     
     post '/reviews/new' do
-        binding.pry
         @review = Review.create(params)
             
         redirect '/reviews'
