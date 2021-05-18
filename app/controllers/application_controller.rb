@@ -31,9 +31,13 @@ class ApplicationController < Sinatra::Base
     
     post '/login' do
         @user = User.find_by(user_email: params[:user_email])
-    
-        @reviews = Review.all
-        erb :reviews
+        if @user
+            @reviews = Review.all
+
+            redirect '/reviews'
+        else
+            redirect '/'
+        end
     end
 
     get '/reviews' do
