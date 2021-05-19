@@ -38,7 +38,7 @@ class ApplicationController < Sinatra::Base
     end
     
     get '/reviews/:id' do
-    
+        erb :show
     end
 
     get '/reviews/:id/edit' do
@@ -52,8 +52,14 @@ class ApplicationController < Sinatra::Base
     end
 
     patch '/reviews/:id/edit' do
+        @review = Review.find_by_id(params[:id])
+        @review.review_title = params[:review_title]
+        @review.review_cigar = params[:review_cigar]
+        @review.review_rating = params[:review_rating]
+        @review.review_description = params[:review_description]
+        @review.save
 
-        redirect '/reviews/#{review.id}'
+        redirect "/reviews/#{@review.id}"
     end
 
     delete '/reviews/:id' do

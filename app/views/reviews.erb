@@ -4,10 +4,11 @@
 
 <% @reviews.each do |review| %>
     <h3><%= review.review_title %></h3>
-    <h4><%= review.review_rating %></h4>
+    <h4><%= review.review_cigar %></h4>
+    <h5><%= review.review_rating %></h5>
     <p><%= review.review_description %></p>
     
     <% if review.user_id == session[:user_id] %>
-        <a href="/reviews/#{review.id}/edit">Edit</a>
+        <a href='/reviews/<%= review.id %>/edit'>Edit</a>
     <% end %>
 <% end %>

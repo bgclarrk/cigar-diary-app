@@ -1,0 +1,30 @@
+<div class="container">
+    <h3>Edit Review:</a></h3>
+
+    <% review = Review.find_by_id(params[:id]) %>
+    <form action='/reviews/<%= params[:id] %>/edit' method="POST">
+        <input type="hidden" name="user_id" value="<%= current_user?.id %>">
+        <input type="hidden" name="_method" value="patch">
+        <label for="review_title">Review Title: </label><br>
+        <input type="text" id="review_title" name="review_title" value="<%= review.review_title %>">
+        <br><br>
+        <label for="review_cigar">Cigar: </label><br>
+        <input type="text" id="review_cigar" name="review_cigar" value="<%= review.review_cigar %>">
+        <br><br>
+        <label for="review_rating">Review Rating: </label><br>
+        <input type="range" min="0" max="5" value="<%= review.review_rating %>" id="review_rating" name="review_rating" step="1" list="ratingsettings">
+        <datalist id="ratingsettings">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </datalist>
+        <br><br>
+        <label for="review_description">Review Description: </label><br>
+        <textarea id="review" name="review_description"><%= review.review_description %></textarea>
+        <br><br>
+        <input type="submit" id="submit" value="Save">
+    </form>
+</div>
