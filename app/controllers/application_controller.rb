@@ -11,32 +11,17 @@ class ApplicationController < Sinatra::Base
         erb :index
     end
     
-    post '/' do
+    post '/signup' do
         @user = User.find_by(user_email: params[:user_email])
         if @user
             session[:user_id] = @user.id
             
-            redirect '/login'
+            redirect "/sessions/login"
         else
             @user = User.create(params)
             session[:user_id] = User.last.id
             
             redirect '/reviews'
-        end
-    end
-
-    get '/login' do
-        erb :login
-    end
-    
-    post '/login' do
-        @user = User.find_by(user_email: params[:user_email])
-        if @user
-            @reviews = Review.all
-
-            redirect '/reviews'
-        else
-            redirect '/'
         end
     end
 
