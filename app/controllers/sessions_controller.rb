@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     post '/login' do
         @user = User.find_by(user_email: params[:user_email])
         if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
             @reviews = Review.all
 
             redirect '/reviews'
