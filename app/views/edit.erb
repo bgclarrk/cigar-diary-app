@@ -1,13 +1,13 @@
 <div class="row">
     <div class="col-lg-12">
+        <% review = Review.find_by_id(params[:id]) %>
+        <% if current_user? == review.user_id %>
         <h3>Edit Review:</a></h3>
 
-        <% review = Review.find_by_id(params[:id]) %>
         <form action='/reviews/<%= params[:id] %>/edit' method="POST">
-        
             <div class="form-group">
                 <input type="hidden" name="_method" value="patch">
-                <input type="hidden" name="user_id" value="<%= @user_id %>">
+                <input type="hidden" name="user_id" value="<%= review.user_id %>">
                 <input type="text" class="form-control form-control-lg" id="review_title" name="review_title" value="<%= review.review_title %>">
             </div><br>
             <div class="form-group" placeholder="Review Cigar:">
@@ -18,27 +18,27 @@
                     <% if review.review_rating == "1" %>
                         <option value="1" selected>Rating: 1 (worst)</option>
                     <% else %>
-                        <option value="1">Rating: 1 (worst)</option>%>
+                        <option value="1">Rating: 1 (worst)</option>>
                     <% end %>
                     <% if review.review_rating == "2" %>
                         <option value="2" selected>Rating: 2</option>
                     <% else %>
-                        <option value="2">Rating: 2</option>%>
+                        <option value="2">Rating: 2</option>>
                     <% end %>
                     <% if review.review_rating == "3" %>
                         <option value="3" selected>Rating: 3</option>
                     <% else %>
-                        <option value="3">Rating: 3</option>%>
+                        <option value="3">Rating: 3</option>>
                     <% end %>
                     <% if review.review_rating == "4" %>
                         <option value="4" selected>Rating: 4</option>
                     <% else %>
-                        <option value="4">Rating: 4</option>%>
+                        <option value="4">Rating: 4</option>>
                     <% end %>
                     <% if review.review_rating == "5" %>
                         <option value="5" selected>Rating: 5 (best)</option>
                     <% else %>
-                        <option value="5">Rating: 5 (best)</option>%>
+                        <option value="5">Rating: 5 (best)</option>>
                     <% end %>
                 </select>
             </div><br>
@@ -61,3 +61,6 @@
         </form>
     </div>
 </div>
+<% else %>
+    <h3>You do not have permission to edit this review</h3>
+<% end %>
