@@ -1,11 +1,19 @@
-<h1>Reviews:</h1>
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Reviews:</h1>
+    </div>
+</div>
 
 <% @reviews.each do |review| %>
-    <h3><%= review.review_title %></h3>
-    <h4><%= review.review_cigar %> &nbsp; | &nbsp; Rating: <%= review.review_rating %></h4>
-    <p>Review: <%= review.review_description %></p>
-    <p>Author: <%= current_user?.user_name %> &nbsp; | &nbsp; Published: <%= review.created_at %>
-    <% if review.user_id == session[:user_id] %>
-         &nbsp;  |  &nbsp;  <a href='/reviews/<%= review.id %>/edit'>Edit</a></p>
-    <% end %>
+    <div class="row">
+        <div class="col-lg-12 review">
+            <h3><%= review.review_title %></h3>
+            <h4><%= review.review_cigar %> &nbsp; | &nbsp; Rating: <%= review.review_rating %></h4>
+            <p>Review: <%= review.review_description %></p>
+            <p>Author: <%= current_user?.user_name %> &nbsp; | &nbsp; Published: <%= review.created_at %>
+            <% if review.user_id == session[:user_id] %>
+                &nbsp;  |  &nbsp;  <a href='/reviews/<%= review.id %>/edit'>Edit</a></p>
+            <% end %>
+        </div>
+    </div>
 <% end %>

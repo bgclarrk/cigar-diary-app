@@ -1,9 +1,19 @@
-<% review = Review.find_by_id(params[:id]) %>
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Review:</h1>
+    </div>
+</div>
 
-<h3><%= review.review_title %></h3>
-<h4><%= review.review_cigar %> &nbsp; | &nbsp; Rating: <%= review.review_rating %></h4>
-<p><%= review.review_description %></p>
-<p>Author: <%= current_user?.user_name %> &nbsp; | &nbsp; Published: <%= review.created_at %>
-    <% if review.user_id == session[:user_id] %>
-         &nbsp;  |  &nbsp;  <a href='/reviews/<%= review.id %>/edit'>Edit</a></p>
-    <% end %>
+<div class="row">
+    <div class="col-lg-12 review">
+        <% review = Review.find_by_id(params[:id]) %>
+
+        <h3><%= review.review_title %></h3>
+        <h4><%= review.review_cigar %> &nbsp; | &nbsp; Rating: <%= review.review_rating %></h4>
+        <p><%= review.review_description %></p>
+        <p>Author: <%= current_user?.user_name %> &nbsp; | &nbsp; Published: <%= review.created_at %>
+        <% if review.user_id == session[:user_id] %>
+            &nbsp;  |  &nbsp;  <a href='/reviews/<%= review.id %>/edit'>Edit</a></p>
+        <% end %>
+    </div>
+</div>

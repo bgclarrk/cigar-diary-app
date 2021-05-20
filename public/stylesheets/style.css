@@ -1,7 +1,10 @@
-nav ul {
-    list-style-type: none !important;
+.review {
+    background: #ddd;
+    padding: 1%;
+    margin: 2% 4%;
+    border-radius: 10px;
 }
 
-nav li {
-    text-decoration: none !important;
+.review-body {
+    margin-top: 5%;
 }
