@@ -1,6 +1,9 @@
 <% review = Review.find_by_id(params[:id]) %>
 
 <h3><%= review.review_title %></h3>
-<h4><%= review.review_cigar %></h4>
-<h5><%= review.review_rating %></h5>
+<h4><%= review.review_cigar %> &nbsp; | &nbsp; Rating: <%= review.review_rating %></h4>
 <p><%= review.review_description %></p>
+<p>Author: <%= current_user?.user_name %> &nbsp; | &nbsp; Published: <%= review.created_at %>
+    <% if review.user_id == session[:user_id] %>
+         &nbsp;  |  &nbsp;  <a href='/reviews/<%= review.id %>/edit'>Edit</a></p>
+    <% end %>

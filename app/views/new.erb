@@ -1,28 +1,26 @@
 <div class="container">
-    <h3>Create a new cigar review below</a></h3>
+    <h3>Create a new cigar review below: </a></h3>
 
     <form action="/reviews/new" method="POST">
+    <div class="form-group">
         <input type="hidden" name="user_id" value="<%= @user_id %>">
-        <label for="review_title">Review Title: </label><br>
-        <input type="text" id="review_title" name="review_title">
-        <br><br>
-        <label for="review_cigar">Cigar: </label><br>
-        <input type="text" id="review_cigar" name="review_cigar">
-        <br><br>
-        <label for="review_rating">Review Rating: </label><br>
-        <input type="range" min="0" max="5" value="3" id="review_rating" name="review_rating" step="1" list="ratingsettings">
-        <datalist id="ratingsettings">
-            <option value="0">0</option>
+        <input type="text" class="form-control form-control-lg" id="review_title" name="review_title" placeholder="Review Title:">
+    </div><br>
+    <div class="form-group" placeholder="Review Rating:">
+        <input type="text" class="form-control form-control-lg" id="review_cigar" name="review_cigar" placeholder="Review Cigar:">
+    </div><br>
+    <div class="form-group" placeholder="Review Rating">
+        <select class="form-control form-control-lg" id="review_rating" name="review_rating">
             <option value="1">1</option>
             <option value="2">2</option>
-            <option value="3">3</option>
+            <option value="3" selected>3</option>
             <option value="4">4</option>
             <option value="5">5</option>
-        </datalist>
-        <br><br>
-        <label for="review_description">Review Description: </label><br>
-        <textarea id="review" name="review_description"></textarea>
-        <br><br>
-        <input type="submit" id="submit" value="Save">
+        </select>
+    </div><br>
+    <div class="form-group">
+        <textarea id="review" class="form-control form-control-lg" name="review_description" placeholder="Review Description:" rows="5"></textarea>
+    </div><br>
+        <input type="submit" id="submit" class="btn btn-primary" value="Save">
     </form>
 </div>
