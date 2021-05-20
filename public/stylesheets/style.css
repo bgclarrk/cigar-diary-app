@@ -2,12 +2,20 @@ nav img {
     margin: 0 1%;
 }
 
-body {
-    background: #363d43;
+.nav-link {
+    color: #adbac7 !important;
 }
 
-h1, h2, h3, h4, h5 {
-    color: #ffffff;
+a {
+    text-decoration: none;
+}
+
+body {
+    background: #2d333b;
+}
+
+h1, h2, h3, h4, h5, p {
+    color: #adbac7;
 }
 
 hr {
@@ -27,7 +35,7 @@ hr {
 
 .review-footer {
     margin-bottom: 5%;
-    color: #ffffff;
+    color: #adbac7;
 }
 
 form {
