@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-lg-12">
         <% review = Review.find_by_id(params[:id]) %>
-        <% if current_user? == review.user_id %>
+        <% if current_user?.id == review.user_id %>
         <h3>Edit Review:</a></h3>
 
         <form action='/reviews/<%= params[:id] %>/edit' method="POST">

@@ -1,12 +1,22 @@
-<h1>Welcome Back to Cigar Diaries</h1>
-<h3>Log in below or <a href="/">signup here</a>!</h3>
-
-<form action="/login" method="POST">
-    <label for="user_email">Email: </label><br>
-    <input type="email" id="user_email" name="user_email">
-    <br><br>
-    <label for="password">Password: </label><br>
-    <input type="password" id="password" name="password">
-    <br><br>
-    <input type="submit" id="submit" value="Log In">
-</form>
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Welcome Back to Cigar Diaries</h1>
+        <h3>Log in below or <a href="/">signup here</a>!</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control form-control-lg" id="user_email" name="user_email" placeholder="Email:">
+            </div><br>
+            <div class="form-group">
+                <input type="text" class="form-control form-control-lg" id="password" name="password" placeholder="Password:">
+            </div><br>
+            <div class="form-group">
+                <input type="submit" id="submit" class="btn btn-primary btn-lg" value="Log In">
+            </div
+            <input type="submit" id="submit" value="Log In">
+        </form>
+    </div>
+</div>
