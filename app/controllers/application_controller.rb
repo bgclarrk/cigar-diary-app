@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
 
     get '/reviews' do
         @reviews = Review.all
-        
+
         erb :reviews
     end
     

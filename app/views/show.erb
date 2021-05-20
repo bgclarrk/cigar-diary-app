@@ -10,14 +10,26 @@
         <% review = Review.find_by_id(params[:id]) %>
 
         <h3 class="text-center"><%= review.review_title %></h3>
-        <h4 class="text-center"><%= review.review_cigar %> &nbsp; | &nbsp; Rating: <%= review.review_rating %> Stars</h4>
-        <p class="text-center">Author: <%= current_user?.user_name %> &nbsp; | &nbsp; Published: <%= review.created_at %>
-        <% if review.user_id == session[:user_id] %>
-            &nbsp;  |  &nbsp;  <a href='/reviews/<%= review.id %>/edit'>Edit</a></p>
-        <% end %>
+        <h4 class="text-center"><%= review.review_cigar %></h4>
+        <p class="text-center"><% if review.review_rating == "1" %>
+                <img src="./images/GoldStar.png" width="25" height="25">
+            <% elsif review.review_rating == "2" %>
+            <img src="./images/GoldStar.png" width="25" height="25"><img src="./images/GoldStar.png" width="25" height="25">
+            <% elsif review.review_rating == "3" %>
+                <img src="./images/GoldStar.png" width="25" height="25"><img src="./images/GoldStar.png" width="25" height="25"><img src="./images/GoldStar.png" width="25" height="25">
+            <% elsif review.review_rating == "4" %>
+                <img src="./images/GoldStar.png" width="25" height="25"><img src="./images/GoldStar.png" width="25" height="25"><img src="./images/GoldStar.png" width="25" height="25"><img src="./images/GoldStar.png" width="25" height="25">
+            <% else %>
+                <img src="./images/GoldStar.png" width="25" height="25"><img src="./images/GoldStar.png" width="25" height="25"><img src="./images/GoldStar.png" width="25" height="25"><img src="./images/GoldStar.png" width="25" height="25"><img src="./images/GoldStar.png" width="25" height="25">
+            <% end %>
+        </p>
         <hr>
         <p><%= review.review_description %></p>
     </div>
+    <p class="text-center review-footer">Author: <%= current_user?.user_name %> &nbsp; | &nbsp; Published: <%= review.created_at %>
+    <% if review.user_id == session[:user_id] %>
+        &nbsp;  |  &nbsp;  <a href='/reviews/<%= review.id %>/edit'>Edit</a></p>
+    <% end %>
 </div>
 
 <div class="row">
