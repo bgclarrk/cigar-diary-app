@@ -16,7 +16,7 @@ class ApplicationController < Sinatra::Base
         if @user
             session[:user_id] = @user.id
             
-            redirect "/sessions/login"
+            redirect "/login"
         else
             @user = User.create(params)
             session[:user_id] = User.last.id

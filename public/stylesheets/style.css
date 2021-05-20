@@ -1,10 +1,14 @@
 .review {
     background: #ddd;
     padding: 1%;
-    margin: 2% 4%;
+    margin: 2% 0;
     border-radius: 10px;
 }
 
 .review-body {
     margin-top: 5%;
+}
+
+form {
+    padding: 3% 0;
 }
