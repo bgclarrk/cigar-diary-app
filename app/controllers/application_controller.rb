@@ -1,4 +1,7 @@
 class ApplicationController < Sinatra::Base
+    require 'rack-flash'
+    use Rack::Flash
+
 
     configure do 
         set :public_folder, 'public'
@@ -13,6 +16,7 @@ class ApplicationController < Sinatra::Base
     
     post '/signup' do
         @user = User.find_by(user_email: params[:user_email])
+        
         if @user
             session[:user_id] = @user.id
             

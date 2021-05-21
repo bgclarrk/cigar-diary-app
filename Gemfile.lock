@@ -31,11 +31,14 @@ GEM
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     open-uri (0.1.0)
+    pg (1.2.3)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
     racc (1.5.2)
     rack (2.2.3)
+    rack-flash3 (1.0.5)
+      rack
     rack-protection (2.1.0)
       rack
     rack-test (0.6.3)
@@ -86,13 +89,15 @@ DEPENDENCIES
   json
   nokogiri
   open-uri
+  pg (~> 1.2, >= 1.2.3)
   pry
+  rack-flash3
   rake
   require_all
   shotgun
   sinatra
   sinatra-activerecord
-  sqlite3 (~> 1.4)
+  sqlite3
   thin
   tux
 

@@ -6,6 +6,10 @@ nav img {
     color: #adbac7 !important;
 }
 
+.alert {
+    margin-top: 2%;
+}
+
 a {
     text-decoration: none;
 }
@@ -14,7 +18,7 @@ body {
     background: #2d333b;
 }
 
-h1, h2, h3, h4, h5, p {
+h1, h2, h3, h4, p {
     color: #adbac7;
 }
 
