@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/' do
-        erb :index
+        erb :'sessions/index'
     end
     
     post '/signup' do
@@ -25,28 +25,28 @@ class ApplicationController < Sinatra::Base
             @user = User.create(params)
             session[:user_id] = User.last.id
             
-            redirect '/reviews'
+            redirect 'reviews/reviews'
         end
     end
 
     get '/reviews' do
         @reviews = Review.all
 
-        erb :reviews
+        erb :'reviews/reviews'
     end
     
     get '/reviews/new' do
         @user_id = session[:user_id]
         
-        erb :new
+        erb :'reviews/new'
     end
     
     get '/reviews/:id' do
-        erb :show
+        erb :'reviews/show'
     end
 
     get '/reviews/:id/edit' do
-        erb :edit
+        erb :'reviews/edit'
     end
     
     post '/reviews/new' do
