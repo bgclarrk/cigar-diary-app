@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
             @user = User.create(params)
             session[:user_id] = User.last.id
             
-            redirect 'reviews/reviews'
+            redirect '/reviews'
         end
     end
 
